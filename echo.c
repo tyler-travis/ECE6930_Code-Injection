@@ -3,18 +3,21 @@
 //	Name(s): Justin Cox & Tyler Travis
 //
 //
-//
 //*****************************************************************************
 
+#define PART_TM4C123GH6PM
+#define TARGET_IS_TM4C123_RA1
+
+#include <inc/tm4c123gh6pm.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include "inc/hw_memmap.h"
-#include "driverlib/gpio.h"
-#include "driverlib/pin_map.h"
-#include "driverlib/rom.h"
-#include "driverlib/sysctl.h"
-#include "driverlib/uart.h"
-#include "utils/uartstdio.h"
+#include <inc/hw_memmap.h>
+#include <driverlib/gpio.h>
+#include <driverlib/pin_map.h>
+#include <driverlib/rom.h>
+#include <driverlib/sysctl.h>
+#include <driverlib/uart.h>
+#include <utils/uartstdio.h>
 
 void echo(void);
 

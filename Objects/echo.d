@@ -1,0 +1,12 @@
+.\objects\echo.o: echo.c
+.\objects\echo.o: C:\ti\TivaWare_C_Series-2.1.2.111\inc/tm4c123gh6pm.h
+.\objects\echo.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\echo.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\echo.o: C:\ti\TivaWare_C_Series-2.1.2.111\inc/hw_memmap.h
+.\objects\echo.o: C:\ti\TivaWare_C_Series-2.1.2.111\driverlib/gpio.h
+.\objects\echo.o: C:\ti\TivaWare_C_Series-2.1.2.111\driverlib/pin_map.h
+.\objects\echo.o: C:\ti\TivaWare_C_Series-2.1.2.111\driverlib/rom.h
+.\objects\echo.o: C:\ti\TivaWare_C_Series-2.1.2.111\driverlib/sysctl.h
+.\objects\echo.o: C:\ti\TivaWare_C_Series-2.1.2.111\driverlib/uart.h
+.\objects\echo.o: C:\ti\TivaWare_C_Series-2.1.2.111\utils/uartstdio.h
+.\objects\echo.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
