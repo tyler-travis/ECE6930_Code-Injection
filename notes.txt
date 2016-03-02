@@ -1,0 +1,95 @@
+Code Injection Notes
+
+# Intro:
+Find a way to load all the instructions into flash memory
+When all instructions are loaded into memory, jump to the starting point.
+This needs to be in memory that is allowed to be executed.
+
+# Writing to Flash:
+To write to the flash, we need to use the FMA, FMD, and FMC registers
+	Base Register: 0x400F.D000
+	FMA Offset: 0x00 - Flash Memory Address
+	FMD Offset: 0x04 - Flash Memory Data
+	FMC Offset: 0x08 - Flash Memory Control
+	
+Flash Write Buffer n (FWBn)
+	Base Register: 0x400F.D000
+	Offset: 0x100 - 0x17C
+	
+- FWB0 is written to FMA, FWB1 is written to FMA+0x04, etc.
+	
+- Programming flash is done four bytes (one word) at a time unless using the FWBn
+
+# Setup for blinky:
+
+1. Enable port F on the RCGC register
+	Base Address: 0x400F.E000
+	Offset: 0x608 - RCGCGPIO register
+	OR Data with: 0x10 - Enables port F
+
+2. Set pin 3 as output on port F in GPIO registers
+	Base Address: 0x4002.5000 - Note: this is for Port F (APB) (Advanced Peripheral Bus)
+	Offset: 0x400 - Direction Register
+	OR Data with: 0x08 - Sets pin 3 as output
+	
+3. Turn LED on
+	Base Address: 0x4002.5000 - Same as above
+	Offset: 0x0 - Data Register
+	OR Data with: 0x08 - Sets pin 3 high
+
+4. Delay
+	Find a "for" loop?
+
+5. Turn LED off
+	Base Address: 0x4002.5000 - Same as above
+	Offset: 0x0 - Data Register
+	AND Data with: 0xF7 - Sets pin 3 low
+
+6. Delay
+	Find a "for" loop?
+
+7. Loop back to (Turn LED on) address
+	Set some register to the address of (Turn LED on) and find a bx/blx/etc. to get back to (Turn LED on)
+	
+# Assembly to load to flash:
+(pesudo-asm)
+
+; 1 ---------------- Enable Port F
+mov r0, 0x400F.E000 ; RCGC base register
+ldr r1, [r0, 0x608] ; RCGCGPIO register
+or  r1, r1, 0x10	; Enables Port F 
+str r1, [r0, 0x608] ; Store back into RCGCGPIO register
+
+; 2 ---------------- Set Pin 3 as Output
+mov r0, 0x4002.5000 ; Port F Base
+ldr r1, [r0, 0x400] ; Direction Register
+or  r1, r1, 0x08    ; Set pin 3 to output
+str r1, [r0, 0x400] ; Store back into Port F Direction register
+
+; 3 ---------------- Set Pin 3 high
+; Leave r0 the same since it is already pointing at the correct memory location
+ldr r1, [r0, 0x000] ; Port F Data register
+or  r1, r1, 0x08	; Set pin 3 high
+str r1, [r0, 0x000] ; Store back into Port F Data register
+
+; 4 ---------------- Delay
+; TODO: Figure out how to do delay
+; Possible find a predefined for loop to do it.
+
+; 5 ---------------- Set Pin 3 low
+mov r0, 0x4002.5000 ; Port F Base
+ldr r1, [r0, 0x000] ; Port F Data register
+and r1, r1, 0xF7  	; Set pin 3 low	
+					; 0xF7 -> 0b1111.0111
+					; "3rd" bit is zero so data will be 0
+str r1, [r0, 0x000]	; Store back into Port F Data register
+
+; 6 ---------------- Delay
+; Same as step 4
+
+; 7 ---------------- Jump back to step 3rd
+; Figure out address of step 3 and jump to it
+
+
+
+	

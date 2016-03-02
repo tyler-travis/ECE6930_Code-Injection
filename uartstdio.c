@@ -615,7 +615,7 @@ UARTgets(char *pcBuf, uint32_t ui32Len)
             // all additional characters are ignored until a newline is
             // received.
             //
-            if(ui32Count < ui32Len)
+            //if(ui32Count < ui32Len)
             {
                 //
                 // Store the character in the caller supplied buffer.
@@ -731,7 +731,7 @@ UARTgets(char *pcBuf, uint32_t ui32Len)
         // the buffer.  If the end of the buffer has been reached then all
         // additional characters are ignored until a newline is received.
         //
-        if(ui32Count < ui32Len)
+        //if(ui32Count < ui32Len)
         {
             //
             // Store the character in the caller supplied buffer.

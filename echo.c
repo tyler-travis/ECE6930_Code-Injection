@@ -5,9 +5,6 @@
 //
 //*****************************************************************************
 
-#define PART_TM4C123GH6PM
-#define TARGET_IS_TM4C123_RA1
-
 #include <inc/tm4c123gh6pm.h>
 #include <stdint.h>
 #include <stdbool.h>
