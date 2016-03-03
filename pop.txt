@@ -1,0 +1,120 @@
+---Possible gadgets using pop {r1...rn, pc}---
+
+
+ 1001b44:	69e0      	ldr	r0, [r4, #28]
+ 1001b46:	f010 0f0c 	tst.w	r0, #12
+ 1001b4a:	bf14      	ite	ne
+ 1001b4c:	2002      	movne	r0, #2
+ 1001b4e:	2001      	moveq	r0, #1
+ 1001b50:	bd10      	pop	{r4, pc}
+ 
+ 
+ 1001be6:	6860      	ldr	r0, [r4, #4]
+ 1001be8:	bd10      	pop	{r4, pc}
+ 
+ 
+ 100328e:	2000      	movs	r0, #0
+ 1003290:	bd78      	pop	{r3, r4, r5, r6, pc}
+ 
+ 
+ 1003358:	2000      	movs	r0, #0
+ 100335a:	bd78      	pop	{r3, r4, r5, r6, pc}
+ 
+ 
+ 1003402:	2001      	movs	r0, #1
+ 1003404:	7008      	strb	r0, [r1, #0]
+ 1003406:	2000      	movs	r0, #0
+ 1003408:	bd10      	pop	{r4, pc}
+ 
+ 
+ 10034d2:	b004      	add	sp, #16
+ 10034d4:	2003      	movs	r0, #3
+ 10034d6:	bd30      	pop	{r4, r5, pc}
+ 
+ 
+ 10034e8:	b004      	add	sp, #16
+ 10034ea:	2000      	movs	r0, #0
+ 10034ec:	bd30      	pop	{r4, r5, pc}
+ 
+ 
+ 1003b96:	2001      	movs	r0, #1
+ 1003b98:	bd38      	pop	{r3, r4, r5, pc}
+ 
+ 
+ 1003bb2:	2004      	movs	r0, #4
+ 1003bb4:	bd38      	pop	{r3, r4, r5, pc}
+ 
+ 
+ 1003ee0:	2008      	movs	r0, #8
+ 1003ee2:	bd38      	pop	{r3, r4, r5, pc}
+ 
+ 
+ 1003efe:	f88d 0000 	strb.w	r0, [sp]
+ 1003f02:	f884 c019 	strb.w	ip, [r4, #25]
+ 1003f06:	f882 c000 	strb.w	ip, [r2]
+ 1003f0a:	2008      	movs	r0, #8
+ 1003f0c:	bd38      	pop	{r3, r4, r5, pc}
+ 
+ 
+ 1003fd4:	7006      	strb	r6, [r0, #0]
+ 1003fd6:	2000      	movs	r0, #0
+ 1003fd8:	bd78      	pop	{r3, r4, r5, r6, pc}
+ 
+ 
+ 1004ac2:	6020      	str	r0, [r4, #0]
+ 1004ac4:	bd10      	pop	{r4, pc}
+ 
+ 10065e8:	b002      	add	sp, #8
+ 10065ea:	f04f 30ff 	mov.w	r0, #4294967295	; 0xffffffff
+ 10065ee:	bd70      	pop	{r4, r5, r6, pc}
+ 
+ 
+ 1006652:	b003      	add	sp, #12
+ 1006654:	bd30      	pop	{r4, r5, pc}
+ 
+ 
+ 10066fc:	b002      	add	sp, #8
+ 10066fe:	bd70      	pop	{r4, r5, r6, pc}
+ 
+ 1006770:	6001      	str	r1, [r0, #0]
+ 1006772:	2106      	movs	r1, #6
+ 1006774:	6041      	str	r1, [r0, #4]
+ 1006776:	bd10      	pop	{r4, pc}
+ 
+ 
+ 10067aa:	6008      	str	r0, [r1, #0]
+ 10067ac:	bd10      	pop	{r4, pc}
+ 
+ 
+ 100685a:	6308      	str	r0, [r1, #48]	; 0x30
+ 100685c:	bd10      	pop	{r4, pc}
+ 
+ 
+ 1006970:	2004      	movs	r0, #4
+ 1006972:	6088      	str	r0, [r1, #8]
+ 1006974:	bd10      	pop	{r4, pc}
+ 
+ 
+ 1006bd4:	2001      	movs	r0, #1
+ 1006bd6:	6008      	str	r0, [r1, #0]
+ 1006bd8:	2003      	movs	r0, #3
+ 1006bda:	6120      	str	r0, [r4, #16]
+ 1006bdc:	bd10      	pop	{r4, pc}
+ 
+ 
+ 1006c96:	1a08      	subs	r0, r1, r0
+ 1006c98:	60e0      	str	r0, [r4, #12]
+ 1006c9a:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+ 
+ 
+ 1006cb0:	60af      	str	r7, [r5, #8]
+ 1006cb2:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+ 
+ 
+ 1007036:	2000      	movs	r0, #0
+ 1007038:	bd70      	pop	{r4, r5, r6, pc}
+ 
+ 
+ 10070a2:	2000      	movs	r0, #0
+ 10070a4:	70a0      	strb	r0, [r4, #2]
+ 10070a6:	bd10      	pop	{r4, pc}

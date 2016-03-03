@@ -1,0 +1,44 @@
+-------Notes for Flashing  and Re-programming-------
+
+
+Flash Control Base Reg:  0x400FD000
+
+-------------
+FMA (0x000)  - Set address to start
+-------------
+b0 - b17: OFFSET
+-------------
+FMD (0x004) - Data to write
+-------------
+b0 - b31: DATA
+-------------
+FMC (0x008) - Flash Control
+-------------
+b0: WRITE
+b1: ERASE
+b2: MERASE
+b3: COMT
+
+b16 - b31: WRKEY  (0xA442 or 0x71D5  <-- Depending on BOOTCFG register)
+
+### 1 ###
+ldr rd, [sp, #C]  <--- Move data into rd from stack (Ox400FD000, 0xA442, Address, and OPCODES need to be on stack)
+--or--
+mov rd, rs
+
+### 2 ###  <-- Increase Stack Pointer
+add sp, #4
+--or--
+some sort of pop 
+
+### 3 ###
+str rs, [rd, rc]  <-- store data (rs) into rd (Flash base reg) from OFFSET rc (#0, #4, #8)
+--or--
+str rs, [rd, #0/#4/#8]
+
+### 4 ###
+Some sort of delay gadget for write and erase execution time
+
+
+
+
