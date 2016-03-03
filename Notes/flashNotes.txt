@@ -40,5 +40,62 @@ str rs, [rd, #0/#4/#8]
 Some sort of delay gadget for write and erase execution time
 
 
+-----------------------------------------------------------------------
+	POSSIBLE GADGETS
+-----------------------------------------------------------------------
+	
+%%% Move data from r4 into r2, set r0 as sp, and branch to r2, BRANCH TO: r2 %%%
+	
+ 10065a2:	6822      	ldr	r2, [r4, #0]
+ 10065a4:	2101      	movs	r1, #1
+ 10065a6:	4668      	mov	r0, sp
+ 10065a8:	4790      	blx	r2
+ 
+%%% Set r0 = [r4 + #4], r4 = stack val, pc = next stack val, GO TO PC %%%
+ 
+ 1001be6:	6860      	ldr	r0, [r4, #4]
+ 1001be8:	bd10      	pop	{r4, pc}
+ 
+%%% Move data from r4 into r2, r1 = 1, and increase sp + 8, BRANCH TO: r2 %%%
+ 1006612:	9002      	str	r0, [sp, #8]
+ 1006614:	6822      	ldr	r2, [r4, #0]
+ 1006616:	2101      	movs	r1, #1
+ 1006618:	a802      	add	r0, sp, #8
+ 100661a:	4790      	blx	r2
+ 
+ %%% r2 = sp + 8, r3 = [r0 + 44], r1 = sp, r0 = sp + 4, BRANCH TO: r3 %%%
+ 1006692:	aa02      	add	r2, sp, #8
+ 1006694:	6ac3      	ldr	r3, [r0, #44]	; 0x2c
+ 1006696:	4669      	mov	r1, sp
+ 1006698:	a801      	add	r0, sp, #4
+ 100669a:	4798      	blx	r3
+ 
+%%% r2 = [r4], r1 = stack value, r0 = r6, BRANCH TO: r2 %%%
+ 10065c2:	6822      	ldr	r2, [r4, #0]
+ 10065c4:	f89d 1000 	ldrb.w	r1, [sp]
+ 10065c8:	4630      	mov	r0, r6
+ 10065ca:	4790      	blx	r2
+ 
+ %%% r0 = r4, BRANCH TO: r1 %%%
+ 10069f6:	4620      	mov	r0, r4
+ 10069f8:	4788      	blx	r1
+ 
+ %%% r0 = [ro + 8], BRANCH TO: r0 %%%
+ 1000f3e:	6880      	ldr	r0, [r0, #8]
+ 1000f40:	4700      	bx	r0
+ 
+%%% Store something r0 into [r4] at OFFSET = 0x000, r4 = stack value, GO TO PC %%% 
+ 1004ac2:	6020      	str	r0, [r4, #0]
+ 1004ac4:	bd10      	pop	{r4, pc}
 
-
+ %%% Store something r1 into [r0] at OFFSET = 0x004, r4 = stack value, GO TO PC %%%
+ 1006774:	6041      	str	r1, [r0, #4]
+ 1006776:	bd10      	pop	{r4, pc}
+ 
+%%% Store something r0 into [r1] at OFFSET = 0x008, r4 = stack value, GO TO PC %%%
+ 1006972:	6088      	str	r0, [r1, #8]
+ 1006974:	bd10      	pop	{r4, pc}
+ 
+%%% POSSIBLE LOOP FOR DELAYS %%% 
+ 100658e:	6812      	ldr	r2, [r2, #0]
+ 1006590:	4710      	bx	r2
