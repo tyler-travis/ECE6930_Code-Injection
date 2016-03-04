@@ -1,40 +1,39 @@
 Dependencies for Project 'Echo_Project', Target 'Target 1': (DO NOT MODIFY !)
-F (.\echo.c)(0x56D7427A)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I C:\ti\TivaWare_C_Series-2.1.2.111 -I C:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include --c99-I "C:\Users\tyler\School\Spring 2016\ECE6930\Project2-CodeInjection\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="518" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RA1-o .\objects\echo.o --omf_browse .\objects\echo.crf --depend .\objects\echo.d)
-I (C:\ti\TivaWare_C_Series-2.1.2.111\inc\tm4c123gh6pm.h)(0x56D4B137)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x569ECB3A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x569ECB3A)
-I (C:\ti\TivaWare_C_Series-2.1.2.111\inc\hw_memmap.h)(0x56D4B136)
-I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\gpio.h)(0x56D4B0E7)
-I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\pin_map.h)(0x56D4B0E7)
-I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\rom.h)(0x56D4B0E7)
-I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\sysctl.h)(0x56D4B0E7)
-I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\uart.h)(0x56D4B0E7)
-I (C:\ti\TivaWare_C_Series-2.1.2.111\utils\uartstdio.h)(0x56D4B155)
-I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x569ECB3A)
-F (.\uartstdio.c)(0x56D74B14)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I C:\ti\TivaWare_C_Series-2.1.2.111 -I C:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include --c99-I "C:\Users\tyler\School\Spring 2016\ECE6930\Project2-CodeInjection\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="518" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RA1-o .\objects\uartstdio.o --omf_browse .\objects\uartstdio.crf --depend .\objects\uartstdio.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x569ECB3A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x569ECB3A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x569ECB3A)
-I (C:\ti\TivaWare_C_Series-2.1.2.111\inc\hw_ints.h)(0x56D4B136)
-I (C:\ti\TivaWare_C_Series-2.1.2.111\inc\hw_memmap.h)(0x56D4B136)
-I (C:\ti\TivaWare_C_Series-2.1.2.111\inc\hw_types.h)(0x56D4B136)
-I (C:\ti\TivaWare_C_Series-2.1.2.111\inc\hw_uart.h)(0x56D4B136)
-I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\debug.h)(0x56D4B0E7)
-I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\interrupt.h)(0x56D4B0E7)
-I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\rom.h)(0x56D4B0E7)
-I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\rom_map.h)(0x56D4B0E7)
-I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\sysctl.h)(0x56D4B0E7)
-I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\uart.h)(0x56D4B0E7)
-I (C:\ti\TivaWare_C_Series-2.1.2.111\utils\uartstdio.h)(0x56D4B155)
-F (.\driverlib.lib)(0x56D72C64)()
-F (RTE\Device\TM4C123GH6PM\startup_TM4C123.s)(0x51B76296)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I "C:\Users\tyler\School\Spring 2016\ECE6930\Project2-CodeInjection\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123--pd "__UVISION_VERSION SETA 518" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1"--list .\listings\startup_tm4c123.lst --xref -o .\objects\startup_tm4c123.o --depend .\objects\startup_tm4c123.d)
-F (RTE\Device\TM4C123GH6PM\system_TM4C123.c)(0x550AE46A)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I C:\ti\TivaWare_C_Series-2.1.2.111 -I C:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include --c99-I "C:\Users\tyler\School\Spring 2016\ECE6930\Project2-CodeInjection\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="518" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RA1-o .\objects\system_tm4c123.o --omf_browse .\objects\system_tm4c123.crf --depend .\objects\system_tm4c123.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x569ECB3A)
-I (C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123.h)(0x530F7F96)
-I (C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h)(0x551060BC)
-I (C:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x562689FC)
-I (C:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h)(0x56267640)
-I (C:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x56267640)
-I (C:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x56267640)
-I (C:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x56267640)
-I (C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B76296)
+F (.\echo.c)(0x56D8AFAB)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -IC:\ti\TivaWare_C_Series-2.1.2.111 -IC:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include --c99-I "C:\Users\Justin\Documents\ECE HW Security\HW2\ECE6930_Code-Injection\KeilProject\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123-D__UVISION_VERSION="513" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RA1-o .\objects\echo.o --omf_browse .\objects\echo.crf --depend .\objects\echo.d)
+I (C:\ti\TivaWare_C_Series-2.1.2.111\inc\tm4c123gh6pm.h)(0x56C8FCEF)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5476C5F0)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5476C5F0)
+I (C:\ti\TivaWare_C_Series-2.1.2.111\inc\hw_memmap.h)(0x56C8FCEF)
+I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\gpio.h)(0x56C8FCEE)
+I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\pin_map.h)(0x56C8FCEE)
+I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\rom.h)(0x56C8FCEE)
+I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\sysctl.h)(0x56C8FCEE)
+I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\uart.h)(0x56C8FCEE)
+I (C:\ti\TivaWare_C_Series-2.1.2.111\utils\uartstdio.h)(0x56C8FCF1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x5476C5EA)
+F (.\uartstdio.c)(0x56D8E10A)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -IC:\ti\TivaWare_C_Series-2.1.2.111 -IC:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include --c99-I "C:\Users\Justin\Documents\ECE HW Security\HW2\ECE6930_Code-Injection\KeilProject\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123-D__UVISION_VERSION="513" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RA1-o .\objects\uartstdio.o --omf_browse .\objects\uartstdio.crf --depend .\objects\uartstdio.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5476C5F0)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5476C5F0)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x5476C5EA)
+I (C:\ti\TivaWare_C_Series-2.1.2.111\inc\hw_ints.h)(0x56C8FCEF)
+I (C:\ti\TivaWare_C_Series-2.1.2.111\inc\hw_memmap.h)(0x56C8FCEF)
+I (C:\ti\TivaWare_C_Series-2.1.2.111\inc\hw_types.h)(0x56C8FCEF)
+I (C:\ti\TivaWare_C_Series-2.1.2.111\inc\hw_uart.h)(0x56C8FCEF)
+I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\debug.h)(0x56C8FCEE)
+I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\interrupt.h)(0x56C8FCEE)
+I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\rom.h)(0x56C8FCEE)
+I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\rom_map.h)(0x56C8FCEE)
+I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\sysctl.h)(0x56C8FCEE)
+I (C:\ti\TivaWare_C_Series-2.1.2.111\driverlib\uart.h)(0x56C8FCEE)
+I (C:\ti\TivaWare_C_Series-2.1.2.111\utils\uartstdio.h)(0x56C8FCF1)
+F (.\driverlib.lib)(0x56D8AFAB)()
+F (RTE\Device\TM4C123GH6PM\startup_TM4C123.s)(0x56D8AFAB)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I "C:\Users\Justin\Documents\ECE HW Security\HW2\ECE6930_Code-Injection\KeilProject\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123--pd "__UVISION_VERSION SETA 513" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1"--list .\listings\startup_tm4c123.lst --xref -o .\objects\startup_tm4c123.o --depend .\objects\startup_tm4c123.d)
+F (RTE\Device\TM4C123GH6PM\system_TM4C123.c)(0x56D8AFAB)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -IC:\ti\TivaWare_C_Series-2.1.2.111 -IC:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include --c99-I "C:\Users\Justin\Documents\ECE HW Security\HW2\ECE6930_Code-Injection\KeilProject\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123-D__UVISION_VERSION="513" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RA1-o .\objects\system_tm4c123.o --omf_browse .\objects\system_tm4c123.crf --depend .\objects\system_tm4c123.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5476C5F0)
+I (C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123\TM4C123.h)(0x530F7186)
+I (C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123\TM4C123GH6PM.h)(0x530F7186)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cm4.h)(0x53FCF6BA)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmInstr.h)(0x53FFB78A)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmFunc.h)(0x53FFB78A)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmSimd.h)(0x53FCF6BA)
+I (C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B75486)

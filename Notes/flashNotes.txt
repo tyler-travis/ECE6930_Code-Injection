@@ -84,15 +84,15 @@ Some sort of delay gadget for write and erase execution time
  1000f3e:	6880      	ldr	r0, [r0, #8]
  1000f40:	4700      	bx	r0
  
-%%% Store something r0 into [r4] at OFFSET = 0x000, r4 = stack value, GO TO PC %%% 
+%%% Store r0 into [r4] at OFFSET = 0x000, r4 = stack value, GO TO PC %%% 
  1004ac2:	6020      	str	r0, [r4, #0]
  1004ac4:	bd10      	pop	{r4, pc}
 
- %%% Store something r1 into [r0] at OFFSET = 0x004, r4 = stack value, GO TO PC %%%
+ %%% Store r1 into [r0] at OFFSET = 0x004, r4 = stack value, GO TO PC %%%
  1006774:	6041      	str	r1, [r0, #4]
  1006776:	bd10      	pop	{r4, pc}
  
-%%% Store something r0 into [r1] at OFFSET = 0x008, r4 = stack value, GO TO PC %%%
+%%% Store  r0 into [r1] at OFFSET = 0x008, r4 = stack value, GO TO PC %%%
  1006972:	6088      	str	r0, [r1, #8]
  1006974:	bd10      	pop	{r4, pc}
  

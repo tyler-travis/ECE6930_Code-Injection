@@ -601,7 +601,7 @@ UARTgets(char *pcBuf, uint32_t ui32Len)
             //
             // See if a newline or escape character was received.
             //
-            if((cChar == '\r') || (cChar == '\n') || (cChar == 0x1b))
+            if((cChar == '\r') || (cChar == '\n'))
             {
                 //
                 // Stop processing the input and end the line.
@@ -670,7 +670,7 @@ UARTgets(char *pcBuf, uint32_t ui32Len)
         //
         // See if the backspace key was pressed.
         //
-        if(cChar == '\b')
+        /*if(cChar == '\b')
         {
             //
             // If there are any characters already in the buffer, then delete
@@ -693,7 +693,7 @@ UARTgets(char *pcBuf, uint32_t ui32Len)
             // Skip ahead to read the next character.
             //
             continue;
-        }
+        } */
 
         //
         // If this character is LF and last was CR, then just gobble up the
@@ -708,7 +708,7 @@ UARTgets(char *pcBuf, uint32_t ui32Len)
         //
         // See if a newline or escape character was received.
         //
-        if((cChar == '\r') || (cChar == '\n') || (cChar == 0x1b))
+        if((cChar == '\r') || (cChar == '\n'))
         {
             //
             // If the character is a CR, then it may be followed by a LF which
