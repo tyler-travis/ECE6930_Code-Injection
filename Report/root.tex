@@ -171,11 +171,37 @@ In order to reprogram the flash, the following must be performed:
 \item Wait for flash write routine to finish
 \end{enumerate}
 
+In order to accomplish the above procedures, the ROP gadgets will need to be able to perform loads from the stack as well as perform a store to a desired memory location.
+
+A program was written in C++ to send the malicious data over a COM port that interfaces with a UART module on the microcontroller.
+
 \section{GADGET SELECTION}
 
 \section{IMPLEMENTATION}
 
+Using the gadgets explained in the previous section, a carefully crafted byte string was sent over UART into the character buffer on the microcontroller.  Assuming the attacker has the ability to attempt the buffer overflow many times, the canary value was discovered to be a 32-bit word of null characters.  This null canary was precisely placed in the byte string to preserve the canary.
+
+Following the canary, the initial gadget was placed in the spot of the former return address.  This initial portion of the attack byte string is illustrated in Figure 1.
+
 %\begin{figure}[thpb]
+%	\centering
+%	\includegraphics[scale=.75]{passwordGeneration}
+%    \caption{An example table that shows how the password generation %must generate passwords.}
+%\end{figure}
+
+The next part of the attack string handles the flash memory erase routine.  The section of stack memory pertaining to the flash erase routine is further explained in Figure 2.  
+
+%\begin{figure}[thpb]
+%	\centering
+%	\includegraphics[scale=.75]{passwordGeneration}
+%    \caption{An example table that shows how the password generation %must generate passwords.}
+%\end{figure}
+
+After the flash erase routine is performed, the attack byte string has a large number of delay gadgets to allow the erase to finish.  A large amount of delay gadgets are also used when the flash write routine is performed.
+
+The next part of the attack string is used to load the new program data into the flash memory write-data buffers.  This routine is repeated for all of the opcodes that need to be loaded.
+
+The last portion of the attack sets the PC address to the beginning address of the newly loaded program.  The program will begin without having to restart the microcontroller.  This feature allows an attacker to inject the malicious code remotely.    
 %	\centering
 %	\includegraphics[scale=.35]{tek00001}
 %    \caption{The blue signal is when the program initiates. The %yellow signal is when the hash has been computed and verified.}
