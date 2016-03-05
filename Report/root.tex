@@ -70,7 +70,7 @@ Return Oriented Programming on an Embedded System Using Code Injection
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
 
-This paper describes the process of implementing a code injection attack on an ARM Cortex M4 through Return Oriented Programming.  The paper will describe the process of selecting useful snippets of code found in the ROM of microcontroller.  The paper will end by showing the injected program working on the microcontroller.  
+This paper describes the process of implementing a code injection attack on an ARM Cortex M4 through Return Oriented Programming.  The paper will describe the process of selecting useful snippets of code found in the ROM of a microcontroller.  The paper will end by showing the injected program working on the microcontroller.  
 
 \emph{Index Terms}---Return Oriented Programming (ROP), stack overflow, security, embedded system, canary.    
 
@@ -124,7 +124,7 @@ The UARTgets() and UARTprintf() functions are provided from the TivaWare librari
 
 Another defense used to stop buffer overflow attacks is the use of a canary.  The main objective of a buffer overflow is to overwrite the functions return address.  A canary is placed in between the buffer and the return address.  Before the program returns from the return address, it checks to see if the canary has been modified.  If it has, it throws an exception and program execution is halted.
 
-The IDE being used to program the echo() program onto the microcontroller is Keil uVision.  In Keil, there are options available to turn on stack protection.  For stack protection in kill, the canaries are defined by the programmers.  A randomly generated canary is the best choice for increased security.  However since the generation of random canaries takes a toll on the overall performance of the microcontroller, often times a static canary is used.  A common canary that is used is a 32-bit word containing nulls, e.g. $0$x$00000000$ [2].  The authors chose to use the null canary and a later section in this paper will explain how the canary was overcome. 
+The IDE being used to program the echo() program onto the microcontroller is Keil uVision.  In Keil, there are options available to turn on stack protection.  For stack protection in Keil, the canaries are defined by the programmers.  A randomly generated canary is the best choice for increased security.  However since the generation of random canaries takes a toll on the overall performance of the microcontroller, often times a static canary is used.  A common canary that is used is a 32-bit word containing nulls, e.g. $0$x$00000000$ [2].  The authors chose to use the null canary and a later section in this paper will explain how the canary was overcome. 
 %\begin{figure}[thpb]
 %	\centering
 %	\includegraphics[scale=.75]{passwordGeneration}
@@ -177,25 +177,67 @@ A program was written in C++ to send the malicious data over a COM port that int
 
 \section{GADGET SELECTION}
 
+There is one function that is needed to erase the flash, write to the flash buffer, and commit the flash write buffer into the flash memory. That function needs to write certain data to an in-memory register. This overall fuction is broken down into 3 subsections:
+
+\begin{enumerate}
+\item Load the correct data off of the stack into a register
+\item Load the correct address off of the stack into a register
+\item Store the data into the address
+\end{enumerate}
+
+Gadget one through three correspond to the list above. 
+
+Gadget one:
+\begin{lstlisting}
+    ldr r0, [r4, #4]
+    pop {r4, pc}
+\end{lstlisting}
+
+Gadget two:
+\begin{lstlisting}
+    pop {r4, pc}
+\end{lstlisting}
+
+Gadget three:
+\begin{lstlisting}
+    str r0, [r4, #0]
+    pop {r4, pc}
+\end{lstlisting}
+
+Gadget four is used for a delay when the flash is getting erased or written to
+\\
+\\
+Gadget four:
+
+\begin{lstlisting}
+    tst.w r0, #8
+    ite ne
+    movne #15
+    moveq #14
+    pop {pc}
+\end{lstlisting}
+
+The actual instruction functionality of gadget four isn't important, only the amount of time it takes to execute.
+
 \section{IMPLEMENTATION}
 
 Using the gadgets explained in the previous section, a carefully crafted byte string was sent over UART into the character buffer on the microcontroller.  Assuming the attacker has the ability to attempt the buffer overflow many times, the canary value was discovered to be a 32-bit word of null characters.  This null canary was precisely placed in the byte string to preserve the canary.
 
 Following the canary, the initial gadget was placed in the spot of the former return address.  This initial portion of the attack byte string is illustrated in Figure 1.
 
-%\begin{figure}[thpb]
-%	\centering
-%	\includegraphics[scale=.75]{passwordGeneration}
-%    \caption{An example table that shows how the password generation %must generate passwords.}
-%\end{figure}
+\begin{figure}[thpb]
+	\centering
+	\includegraphics[scale=.50]{TheInitialStack}
+    \caption{An example of how the buffer overflow attack is initialized.}
+\end{figure}
 
 The next part of the attack string handles the flash memory erase routine.  The section of stack memory pertaining to the flash erase routine is further explained in Figure 2.  
 
-%\begin{figure}[thpb]
-%	\centering
-%	\includegraphics[scale=.75]{passwordGeneration}
-%    \caption{An example table that shows how the password generation %must generate passwords.}
-%\end{figure}
+\begin{figure}[thpb]
+	\centering
+	\includegraphics[scale=.50]{RegisterWriting}
+    \caption{An example of how the gadgets are stored on the stack to perform multiple load and stores.}
+\end{figure}
 
 After the flash erase routine is performed, the attack byte string has a large number of delay gadgets to allow the erase to finish.  A large amount of delay gadgets are also used when the flash write routine is performed.
 
@@ -209,10 +251,21 @@ The last portion of the attack sets the PC address to the beginning address of t
 
 \section{RESULTS}
 
+The authors were able to successfully perform a code injection attack using ROP.  The microcontroller was initially programmed to perform an "echo" functionality.  Using a buffer overflow with ROP, the authors were able to erase the flash, reprogram the flash, and start the new program.  The new program flashes an LED found on the Tiva C Launchpad at a human observable rate.  Here is a picture of the successful hack.
+
+\begin{figure}[thpb]
+	\centering
+	\includegraphics[scale=.05]{board}
+    \caption{Successful code injection of a blinky program.}
+\end{figure}
+  
 \subsection{Problems Encountered}
+
+The flash erase and flash write routines require a delay time.  In order to satisfy the delay time, many delay gadgets were used to "waste time".  It would be better to find a gadget that is able to poll the READY bit.  This is something that can be enhanced in a future implementation.  It would allow the attack byte string to be much smaller.
 
 \section{CONCLUSION}
 
+This attack proves that code can be injected onto the TM4C123G microcontroller. Given the right circumstances, code can be erased and executed by exploiting the internal ROM by using ROP on an ARM device. This implies that all TM4C123G microcontroller of this family are vulnerable to this type of attack. Microcontrollers and embedded systems need to achieve better security to keep up with newer attacks to their systems.
 
 \addtolength{\textheight}{-12cm}   % This command serves to balance the column lengths
                                   % on the last page of the document manually. It shortens
@@ -245,17 +298,29 @@ The last portion of the attack sets the PC address to the beginning address of t
 
 \begin{thebibliography}{99}
 
-\bibitem{c1} Steube, Jens. (2012, Nov. 20). \emph{Exploiting a SHA1 Weakness In Password Cracking}[Online]. Available: http://hashcat.net/events/p12/
-\bibitem{c2} Lomont, Chris. (2011, June 21). \emph{Introduction to Intel Advanced Vector Extensions}[Online]. Available: https://software.intel.com/en-us/articles/introduction-to-intel-advanced-vector-extensions
+\bibitem{c1} L. Davi, A. Dmitrienko, A. R. Sadeghi, M. Winandy, "Return-Oriented Programming without Returns on ARM," System Security Lab, Ruhr University Bochum, Germany, Tech. Rep. HGI-TR-2010-002, July 2010.
+\bibitem{c2} G. Richarte, "Four different tricks to bypass StackShield and StackGuard protection," Core Security Technologies, April 2002.
  
 
 \end{thebibliography}
 
-%\begin{figure}[thpb]
-%	\centering
-%	\includegraphics[scale=.75]{hash}
-%    \caption{Verification of the hash of password "a" in FPGA %Simulation.}
-%\end{figure}
+\begin{figure}[thpb]
+	\centering
+	\includegraphics[scale=.5]{StackB4}
+    \caption{The stack memory before the attack.}
+\end{figure}
+
+\begin{figure}[thpb]
+	\centering
+	\includegraphics[scale=.5]{Stack_After1}
+    \caption{A beginning portion of the stack memory after the attack.}
+\end{figure}
+
+\begin{figure}[thpb]
+	\centering
+	\includegraphics[scale=.5]{Stack_After2}
+    \caption{A portion of the stack memory with the opcodes after the attack.}
+\end{figure}
 
 
 \end{document}

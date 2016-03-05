@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.12.14)  4 MAR 2016 18:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.12.14)  4 MAR 2016 19:03
 entering extended mode
 **root.tex
 (root.tex
@@ -286,6 +286,59 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 207--211
+
+ []
+
+<TheInitialStack.png, id=11, 438.63875pt x 175.65625pt>
+File: TheInitialStack.png Graphic file (type png)
+
+<use TheInitialStack.png>
+Package pdftex.def Info: TheInitialStack.png used on input line 230.
+(pdftex.def)             Requested size: 219.31883pt x 87.8279pt.
+ <RegisterWriting.png, id=13, 484.81125pt x 256.96pt>
+File: RegisterWriting.png Graphic file (type png)
+
+<use RegisterWriting.png>
+Package pdftex.def Info: RegisterWriting.png used on input line 238.
+(pdftex.def)             Requested size: 242.40503pt x 128.47968pt.
+ [2 <./TheInitialStack.png> <./RegisterWriting.png>]
+<board.jpg, id=19, 3671.7175pt x 2753.28625pt>
+File: board.jpg Graphic file (type jpg)
+ <use board.jpg>
+Package pdftex.def Info: board.jpg used on input line 258.
+(pdftex.def)             Requested size: 183.59663pt x 137.67238pt.
+
+<StackB4.png, id=20, 507.39563pt x 407.27156pt>
+File: StackB4.png Graphic file (type png)
+ <use StackB4.png>
+Package pdftex.def Info: StackB4.png used on input line 309.
+(pdftex.def)             Requested size: 253.69719pt x 203.63527pt.
+
+Overfull \hbox (7.97908pt too wide) in paragraph at lines 309--310
+ [][] 
+ []
+
+<Stack_After1.png, id=21, 507.39563pt x 407.27156pt>
+File: Stack_After1.png Graphic file (type png)
+ <use Stack_After1.png>
+Package pdftex.def Info: Stack_After1.png used on input line 315.
+(pdftex.def)             Requested size: 253.69719pt x 203.63527pt.
+
+Overfull \hbox (7.97908pt too wide) in paragraph at lines 315--316
+ [][] 
+ []
+
+<Stack_After2.png, id=22, 508.14844pt x 406.51875pt>
+File: Stack_After2.png Graphic file (type png)
+ <use Stack_After2.png>
+Package pdftex.def Info: Stack_After2.png used on input line 321.
+(pdftex.def)             Requested size: 254.0736pt x 203.25887pt.
+
+Overfull \hbox (8.35548pt too wide) in paragraph at lines 321--322
+ [][] 
+ []
+
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -297,24 +350,27 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the US letter (8.5in X 11in) paper size.
 
-[2] (root.aux) ) 
+[3 <./board.jpg> <./StackB4.png> <./Stack_After1.png>] [4
+
+ <./Stack_After2.png>] (root.aux) ) 
 Here is how much of TeX's memory you used:
- 3971 strings out of 493698
- 55577 string characters out of 3144408
- 151530 words of memory out of 3000000
- 7275 multiletter control sequences out of 15000+200000
- 37464 words of font info for 74 fonts, out of 3000000 for 9000
+ 4027 strings out of 493698
+ 56336 string characters out of 3144408
+ 153530 words of memory out of 3000000
+ 7324 multiletter control sequences out of 15000+200000
+ 36328 words of font info for 73 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  27i,9n,49p,676b,1014s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2
-.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/ur
-w/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on root.pdf (2 pages, 83767 bytes).
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips
+/fontname/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+r10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8
+a.pfb>
+Output written on root.pdf (4 pages, 792001 bytes).
 PDF statistics:
- 34 PDF objects out of 1000 (max. 8388607)
+ 52 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
